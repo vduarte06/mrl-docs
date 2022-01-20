@@ -1,7 +1,10 @@
-# MRL Documentation
-Short description of lthe language
+MRL Documentation
+=====
 
-## Getting started
+Short description of the language
+
+Getting started
+---------------
 Lets take a look in the MRL language by creating a simple MRL report for a Polisonomgraphy study (PSG) as follows.
 
 1. Create a file with the extension ```.mrl``` 
