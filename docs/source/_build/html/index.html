@@ -33,22 +33,39 @@
             
   <section id="mrl-documentation">
 <h1>MRL Documentation<a class="headerlink" href="#mrl-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Short description of the language</p>
+<p>MRL is domain specific language (DSL) that aims to improve medical exams report writing.</p>
 <section id="getting-started">
 <h2>1. Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>Lets take a look in the MRL language by creating a simple MRL report for a Polisonomgraphy study (PSG) as follows.</p>
+<p>To introduce MRL, lets create a simple MRL report for a Polisonomgraphy study (PSG) as follows:</p>
 <ol class="arabic simple">
 <li><p>Create a file with the extension <code class="docutils literal notranslate"><span class="pre">.mrl</span></code></p></li>
 <li><p>add the following code. Make sure you have the file name correctly linked to the report in order to access the exam results within your report.</p></li>
 <li><p>Compile the report.</p></li>
 </ol>
+<p>Example:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">from</span> <span class="n">utils</span> <span class="n">import</span> <span class="no">Diagnosis</span><span class="p">;</span>
+<span class="ss">Identification</span><span class="p">:</span>
+    <span class="ss">patientName</span><span class="p">:</span> <span class="s1">&#39;Patient Name&#39;</span><span class="p">;</span>
+    <span class="ss">Birthdate</span><span class="p">:</span> <span class="s1">&#39;01-01-2000&#39;</span><span class="p">;</span>
+
+<span class="ss">Recording</span><span class="p">:</span>
+    <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;exam.edf&#39;</span>
+    <span class="ss">type</span><span class="p">:</span> <span class="s1">&#39;PSG&#39;</span>
+
+<span class="ss">Results</span><span class="p">:</span>
+    <span class="ss">Respiration</span><span class="p">:</span> <span class="no">IAH</span><span class="p">,</span> <span class="no">ODI</span><span class="p">;</span>
+
+<span class="ss">Conclusions</span><span class="p">:</span>
+    <span class="ss">Diagnosis</span><span class="p">:</span> <span class="no">Diagnosis</span><span class="o">.</span><span class="n">SAOS</span><span class="o">.</span><span class="n">severe</span><span class="p">;</span>
+    <span class="ss">Recomendatios</span><span class="p">:</span> <span class="no">CPAP</span><span class="p">;</span>
+</pre></div>
+</div>
 <p>The result will be a beaultiful, objective and uniformized PSG report.</p>
 </section>
 <section id="mrl-basics">
 <h2>2. MRL Basics<a class="headerlink" href="#mrl-basics" title="Permalink to this headline">¶</a></h2>
-</section>
 <section id="variables">
-<h2>2.1. Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<h3>2.1. Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
 <p>When an exam is imported, multiple variables will be availabe in the environment of MRL.
 E.g. if we want to know the Apnea/Hipopnea Index (AHI) we can simply state AHI to access this variable.</p>
 <p>We can also create our own variable asignments, as shown in the following exame:
@@ -59,58 +76,54 @@ functionOutput = someFunctionOutput(arg);</p>
 </div></blockquote>
 </section>
 <section id="functions">
-<h2>2.2. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<h3>2.2. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <p>MRL doenst support general purpose programming but allows the user to import functions implemented in other languages.</p>
 <p>MRL ships with Python integration.
 Python was chosen to be the default language because it has great libraries for signal processing and is easy to learn.</p>
 <p>In summary: functions must be implemented in Python and then connected to MRL. They will send it to python as pipe message.</p>
 <p>In the following example we implemented a function <code class="docutils literal notranslate"><span class="pre">getAge(date)</span></code> and connect we connect it to MRL.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getAge</span><span class="p">(</span><span class="nx">date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nx">call</span> <span class="nx">python_module</span><span class="p">.</span><span class="nx">get_age</span> <span class="nx">date</span><span class="p">;</span>
+</pre></div>
+</div>
 </section>
 <section id="objects">
-<h2>2.3. Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
+<h3>2.3. Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h3>
 <p>The concept of objects is usefull for programmers who are integrating the language into a system.
 A healthcare professional writing a report doesn’t need to worry about the concept of objects but will be able to take advantage of this abstraction while writing reports.</p>
-<p>Objects are represented in a simple <code class="docutils literal notranslate"><span class="pre">key:value</span></code> form. E.g.
-<a href="#id1"><span class="problematic" id="id2">``</span></a>yaml
-Person:</p>
-<blockquote>
-<div><p>name: ‘Patient Name’;
-Birthdate: ‘01-01-2000’;</p>
-</div></blockquote>
-<p><a href="#id3"><span class="problematic" id="id4">``</span></a></p>
+<p>Objects are represented in a simple <code class="docutils literal notranslate"><span class="pre">key:value</span></code> form. E.g.</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="ss">Person</span><span class="p">:</span>
+    <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;Patient Name&#39;</span><span class="p">;</span>
+    <span class="ss">Birthdate</span><span class="p">:</span> <span class="s1">&#39;01-01-2000&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
 <p>The propeties of objects can be accessed with dot.
-<a href="#id5"><span class="problematic" id="id6">``</span></a>yaml
+``
 Person.name
 ``</p>
 <p>The reserved word <code class="docutils literal notranslate"><span class="pre">this</span></code> refers to the current object while constructing an object.. E.g.</p>
-<p><a href="#id7"><span class="problematic" id="id8">``</span></a>yaml
-PatientIdentification:</p>
-<blockquote>
-<div><p>name: ‘Patient Name’;
-Birthdate: ‘01-01-2000’;
-…
-previousReports: getPreviousReports(this);</p>
-</div></blockquote>
-<p>``
-In the example above the properties of the object PatientIdentification will be used to get the previous reports of that patients using a function.</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="ss">PatientIdentification</span><span class="p">:</span>
+    <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;Patient Name&#39;</span><span class="p">;</span>
+    <span class="ss">Birthdate</span><span class="p">:</span> <span class="s1">&#39;01-01-2000&#39;</span><span class="p">;</span>
+    <span class="o">...</span>
+    <span class="ss">previousReports</span><span class="p">:</span> <span class="n">getPreviousReports</span><span class="p">(</span><span class="n">this</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In the example above the properties of the object PatientIdentification will be used to get the previous reports of that patients using a function.</p>
 </section>
 <section id="creating-a-report">
-<h2>Creating a report<a class="headerlink" href="#creating-a-report" title="Permalink to this headline">¶</a></h2>
+<h3>2.4. Creating a report<a class="headerlink" href="#creating-a-report" title="Permalink to this headline">¶</a></h3>
 <p>A MRL report has at least 4 mandatory blocks: Identification, RecordingInfo, Results, Conclusion.</p>
 <p>A report must start with an identification block, which can be created as follows:</p>
-<p><a href="#id9"><span class="problematic" id="id10">``</span></a>yaml
-Identification:</p>
-<blockquote>
-<div><p>patientName: ‘Patient Name’;
-Birthdate: ‘08-06-1992’;
-Age: age(this.Birthdate);
-ClinicalHistory:</p>
-<blockquote>
-<div><p>Summary: ‘Fumador, hipersonolência diurna’;
-PreviousReport: PreviousReport(this);</p>
-</div></blockquote>
-</div></blockquote>
-<p><a href="#id11"><span class="problematic" id="id12">``</span></a></p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="ss">Identification</span><span class="p">:</span>
+    <span class="ss">patientName</span><span class="p">:</span> <span class="s1">&#39;Patient Name&#39;</span><span class="p">;</span>
+    <span class="ss">Birthdate</span><span class="p">:</span> <span class="s1">&#39;08-06-1992&#39;</span><span class="p">;</span>
+    <span class="ss">Age</span><span class="p">:</span> <span class="n">age</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">Birthdate</span><span class="p">);</span>
+    <span class="ss">ClinicalHistory</span><span class="p">:</span>
+        <span class="ss">Summary</span><span class="p">:</span> <span class="s1">&#39;Fumador, hipersonolência diurna&#39;</span><span class="p">;</span>
+        <span class="ss">PreviousReport</span><span class="p">:</span> <span class="no">PreviousReport</span><span class="p">(</span><span class="n">this</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
