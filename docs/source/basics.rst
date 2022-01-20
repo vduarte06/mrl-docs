@@ -29,7 +29,7 @@ In summary: functions must be implemented in Python and then connected to MRL. T
 
    Functions must be declared in a file with the extension ``.fmrl``
 
-In the following example we declared a function ``getAge(date)`` and connect we connect it to MRL.
+In the following example we declared a function ``getAge(date)`` and then linked it to a python implementation.
 
 .. code-block:: javascript
 

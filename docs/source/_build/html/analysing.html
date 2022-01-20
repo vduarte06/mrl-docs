@@ -15,6 +15,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Creating reports" href="reporting.html" />
+    <link rel="prev" title="2. MRL Basics" href="basics.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,6 +35,16 @@
             
   <section id="analysing-data">
 <h1>3. Analysing data<a class="headerlink" href="#analysing-data" title="Permalink to this headline">¶</a></h1>
+<p>As shown in the section <code class="docutils literal notranslate"><span class="pre">2.2.</span> <span class="pre">Functions.</span></code>, we can link MRL to Python functions.</p>
+<p>Besides the custom functions implementation, data processing libraries like Numpy and Scipy are linked by default.</p>
+<p>This can be very useful to analise the exam results in a very convinient way.</p>
+<p>For example. Lets suppose we found that the patient had multiple arousals and also multiple episodes of periodic leg movements.
+We could use the function <code class="docutils literal notranslate"><span class="pre">numpy.correlate</span></code> to check if this 2 finds are actually correlated, as shown bellow:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">arousalsVsLegMovements</span> <span class="o">=</span> <span class="n">correlate</span><span class="p">(</span><span class="no">Arousals</span><span class="p">,</span> <span class="no">LegMovements</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice that the variables <code class="docutils literal notranslate"><span class="pre">Arousals</span></code> and <code class="docutils literal notranslate"><span class="pre">LegMovements</span></code> are imported from the exam file.</p>
+<p>Check out Numpy documentation (<a class="reference external" href="https://numpy.org/">https://numpy.org/</a>) for more information on data analysis.</p>
 </section>
 
 
@@ -52,16 +64,19 @@
 
 
 <h3>Navigation</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">2. MRL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reporting.html">3. Creating reports</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Analysing data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">4. Creating reports</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="basics.html" title="previous chapter">2. MRL Basics</a></li>
+      <li>Next: <a href="reporting.html" title="next chapter">4. Creating reports</a></li>
   </ul></li>
 </ul>
 </div>
