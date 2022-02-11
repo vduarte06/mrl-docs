@@ -23,9 +23,8 @@ However, if any identification information is missing in the exam file you will 
         patientName: 'Patient Name';
         Birthdate: '08-06-1992';
         Age: age(this.Birthdate);
-        ClinicalHistory: 
-            Summary: 'Fumador, hipersonolência diurna';
-            PreviousReport: PreviousReport(this);
+        Summary: 'Fumador, hipersonolência diurna';
+        PreviousReport: PreviousReport(this);
 
 4.3. Results
 -----------
