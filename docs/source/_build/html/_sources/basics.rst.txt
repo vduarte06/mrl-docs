@@ -8,12 +8,25 @@
 When an exam is imported, multiple variables will be availabe in the environment of MRL.
 E.g. if we want to know the Apnea/Hipopnea Index (AHI) we can simply state AHI to access this variable.
 
+2.1.1. Declaration and asignments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 We can also create our own variable asignments, as shown in the following exame:
 
 .. code-block:: javascript
 
-    arg = 1;
-    functionOutput = someFunctionOutput(arg);
+    var1 = 1;
+
+
+2.1.2. Operations with variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can also perform simple operations with variables, including sum, subtraction, multiplication and division.
+
+.. code-block:: javascript
+
+    var1 = 1;
+    var2 = var1 + 1;
 
 2.2. Functions
 --------------
