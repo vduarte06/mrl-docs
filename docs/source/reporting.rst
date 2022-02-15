@@ -63,12 +63,12 @@ A physician will look at the results and make conclusions.
 
 There are a limited range of diagnosis you can make from a PSG exam. 
 
-In the following example we show how a physician can diagnose a patient with Severe Obstructive Sleep Apnea (SOSA) and prescribe Continuous Positive Airway Pressure (CPAP) Therapy.
+In the following example we show how a physician can diagnose a patient with Severe Obstructive Sleep Apnea (OSA) and prescribe Continuous Positive Airway Pressure (CPAP) Therapy.
 
 .. code-block:: ruby
 
     #Conclusions:
-        Diagnosis: Diagnosis.SOSA.severe;
+        Diagnosis: Diagnosis.OSA.severe;
         Recomendatios: CPAP;
     end
 

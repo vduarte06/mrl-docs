@@ -15,16 +15,19 @@ Example:
     Identification:
         patientName: 'Patient Name';
         Birthdate: '01-01-2000';
+    end
 
-    Recording:
+    ExamInfo:
         name: 'exam.edf'
         type: 'PSG'
+    end
 
     Results:
         Respiration: IAH, ODI;
+    end
 
     Conclusions:
-        Diagnosis: Diagnosis.SAOS.severe;
+        Diagnosis: Diagnosis.OSA.severe;
         Recomendatios: CPAP;
     end
 
