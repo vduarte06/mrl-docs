@@ -62,6 +62,7 @@ Objects are represented in a simple ``key:value`` form. E.g.
     Person:
         name: 'Patient Name';
         Birthdate: '01-01-2000';
+        end
 
 The propeties of objects can be accessed with dot.
 `` Person.name ``
@@ -75,6 +76,7 @@ The reserved word ``this`` refers to the current object while constructing an ob
         Birthdate: '01-01-2000';
         ...
         previousReports: getPreviousReports(this);
+        end
 
 In the example above the properties of the object ``PatientIdentification`` will be used to get the previous reports of that patients using a function.
 

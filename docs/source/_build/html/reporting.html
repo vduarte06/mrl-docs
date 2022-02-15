@@ -37,8 +37,16 @@
 <p>A MRL report has at least 4 mandatory sections: <code class="docutils literal notranslate"><span class="pre">ExamInfo,</span> <span class="pre">Identification;</span> <span class="pre">Results</span> <span class="pre">and</span> <span class="pre">Conclusion.</span></code></p>
 <section id="exam-information">
 <h2>4.1. Exam Information<a class="headerlink" href="#exam-information" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recording:</span>
+    <span class="ss">Equipment</span><span class="p">:</span> <span class="s1">&#39;Nox&#39;</span><span class="p">;</span>
+    <span class="ss">Channels</span><span class="p">:</span> <span class="no">EEG</span><span class="p">,</span> <span class="no">EMG</span><span class="p">,</span> <span class="no">PSG</span><span class="p">,</span> <span class="no">ECG</span><span class="p">;</span>
+    <span class="ss">StartDateTime</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2022</span><span class="p">;</span>
+    <span class="ss">EndDatetime</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="mi">2022</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+</div>
 <p>We start by identifing the exam:</p>
-<p>This will allow MRL to access the exam recording variables</p>
+<p>This will allow MRL to access the exam variables</p>
 </section>
 <section id="patient-identification">
 <h2>4.2. Patient Identification<a class="headerlink" href="#patient-identification" title="Permalink to this headline">¶</a></h2>
@@ -50,14 +58,36 @@ However, if any identification information is missing in the exam file you will 
     <span class="ss">Age</span><span class="p">:</span> <span class="n">age</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">Birthdate</span><span class="p">);</span>
     <span class="ss">Summary</span><span class="p">:</span> <span class="s1">&#39;Fumador, hipersonolência diurna&#39;</span><span class="p">;</span>
     <span class="ss">PreviousReport</span><span class="p">:</span> <span class="no">PreviousReport</span><span class="p">(</span><span class="n">this</span><span class="p">);</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </section>
 <section id="results">
 <h2>4.3. Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The results section is basically a selection of the variables to be shown in the report.
+We can group them in categories of findings. Tipical categories of results in a PSG are Respiration, Sleep Architecture, Movement Sleep Disorders, and so on.</p>
+<p>This section is usually filled by a sleep technician.</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1">#Results:</span>
+    <span class="ss">Respiration</span><span class="p">:</span> <span class="no">IAH</span><span class="p">,</span> <span class="no">ODI</span><span class="p">;</span>
+    <span class="ss">SleepArchitecture</span><span class="p">:</span> <span class="no">SleepTime</span><span class="p">,</span> <span class="no">Arousals</span><span class="p">,</span> <span class="no">SleepPhases</span><span class="p">;</span>
+    <span class="ss">Movement</span><span class="p">:</span>
+        <span class="no">LegMovements</span><span class="p">,</span>
+        <span class="s1">&#39;Legs vs Arousals&#39;</span> <span class="p">:</span> <span class="n">correlate</span><span class="p">(</span><span class="no">LegMovement</span><span class="p">,</span> <span class="no">Arousals</span><span class="p">);</span>
+<span class="k">end</span>
+</pre></div>
+</div>
 </section>
-<section id="conclusion">
-<h2>4.3. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<section id="conclusions">
+<h2>4.3. Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>A physician will look at the results and make conclusions.</p>
+<p>There are a limited range of diagnosis you can make from a PSG exam.</p>
+<p>In the following example we show how a physician can diagnose a patient with Severe Obstructive Sleep Apnea (SOSA) and prescribe Continuous Positive Airway Pressure (CPAP) Therapy.</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1">#Conclusions:</span>
+    <span class="ss">Diagnosis</span><span class="p">:</span> <span class="no">Diagnosis</span><span class="o">.</span><span class="n">SOSA</span><span class="o">.</span><span class="n">severe</span><span class="p">;</span>
+    <span class="ss">Recomendatios</span><span class="p">:</span> <span class="no">CPAP</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+</div>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -94,7 +124,7 @@ However, if any identification information is missing in the exam file you will 
 <li class="toctree-l2"><a class="reference internal" href="#exam-information">4.1. Exam Information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#patient-identification">4.2. Patient Identification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#results">4.3. Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conclusion">4.3. Conclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusions">4.3. Conclusions</a></li>
 </ul>
 </li>
 </ul>

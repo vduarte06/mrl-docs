@@ -1,0 +1,11 @@
+=====================
+5. Creating templates
+=====================
+
+We can create templates and reusable snippets in orther to optimize
+
+
+
+
+
+

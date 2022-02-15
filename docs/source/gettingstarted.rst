@@ -26,6 +26,7 @@ Example:
     Conclusions:
         Diagnosis: Diagnosis.SAOS.severe;
         Recomendatios: CPAP;
+    end
 
 
 The result will be a beaultiful, objective and uniformized PSG report.

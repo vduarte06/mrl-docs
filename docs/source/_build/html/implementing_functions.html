@@ -15,6 +15,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Creating reports" href="reporting.html" />
+    <link rel="prev" title="3. Analysing data" href="analysing.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,28 +35,6 @@
             
   <section id="implementing-functions">
 <h1>Implementing functions<a class="headerlink" href="#implementing-functions" title="Permalink to this headline">¶</a></h1>
-<p>MRL doenst support general purpose programming, but allows the user to import functions implemented in other languages
-The following example ilustrates an itegration with Python:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1"># FILE: api.mrl</span>
-
-
-<span class="n">from</span> <span class="n">python</span><span class="o">.</span><span class="n">api</span> <span class="n">import</span> <span class="n">call</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">numpy</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">custom</span><span class="p">;</span> <span class="c1"># user defined module. Could be any name</span>
-
-<span class="n">function</span> <span class="n">correlate</span><span class="p">(</span><span class="n">arg1</span><span class="o">*</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">call</span> <span class="n">numpy</span><span class="o">.</span><span class="n">correlate</span> <span class="n">args</span><span class="o">*</span><span class="p">;</span> <span class="c1"># this maps a mrl function to a numpy function</span>
-<span class="n">function</span> <span class="n">age</span><span class="p">(</span><span class="n">date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">call</span> <span class="n">custom</span><span class="o">.</span><span class="n">age</span> <span class="n">date</span><span class="p">;</span> <span class="c1"># this maps a mrl function to a function in the module custom.py</span>
-</pre></div>
-</div>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-</tbody>
-</table>
-<p>Python was chosen because it has great libraries for signal processing.</p>
 </section>
 
 
@@ -74,10 +54,11 @@ The following example ilustrates an itegration with Python:</p>
 
 
 <h3>Navigation</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">1. Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">2. MRL Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysing.html">3. Analysing data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implementing functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reporting.html">4. Creating reports</a></li>
 </ul>
 
@@ -85,6 +66,8 @@ The following example ilustrates an itegration with Python:</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="analysing.html" title="previous chapter">3. Analysing data</a></li>
+      <li>Next: <a href="reporting.html" title="next chapter">4. Creating reports</a></li>
   </ul></li>
 </ul>
 </div>
@@ -118,7 +101,7 @@ The following example ilustrates an itegration with Python:</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/integration.rst.txt"
+      <a href="_sources/implementing_functions.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

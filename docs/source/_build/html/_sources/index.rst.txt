@@ -20,3 +20,4 @@ Contents
    basics
    analysing
    reporting
+   templates
