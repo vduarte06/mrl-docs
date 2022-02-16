@@ -39,31 +39,20 @@
 <h2>2.1. Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
 <p>When an exam is imported, multiple variables will be availabe in the environment of MRL.
 E.g. if we want to know the Apnea/Hipopnea Index (AHI) we can simply state AHI to access this variable.</p>
-<section id="declaration-and-asignments">
-<h3>2.1.1. Declaration and asignments<a class="headerlink" href="#declaration-and-asignments" title="Permalink to this headline">¶</a></h3>
 <p>We can also create our own variable asignments, as shown in the following exame:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">var1</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
-<section id="operations-with-variables">
-<h3>2.1.2. Operations with variables<a class="headerlink" href="#operations-with-variables" title="Permalink to this headline">¶</a></h3>
-<p>You can also perform simple operations with variables, including sum, subtraction, multiplication and division.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">var1</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
-<span class="nx">var2</span> <span class="o">=</span> <span class="nx">var1</span> <span class="o">+</span> <span class="mf">1</span><span class="p">;</span>
-</pre></div>
-</div>
-</section>
-</section>
 <section id="functions">
 <h2>2.2. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<p>MRL doenst support general purpose programming but allows the user to import functions implemented in other languages.</p>
+<p>MRL doens’t support general purpose programming but allows the user to import functions implemented in other languages.</p>
 <p>MRL ships with Python integration.
 Python was chosen to be the default language because it has great libraries for signal processing and is easy to learn.</p>
 <p>In summary: functions must be implemented in Python and then connected to MRL. They will send it to python as pipe message.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Functions must be declared in a file with the extension <code class="docutils literal notranslate"><span class="pre">.fmrl</span></code></p>
+<p>Functions must be declared in a file with the extension in a file called  <code class="docutils literal notranslate"><span class="pre">api.mrl</span></code></p>
 </div>
 <p>In the following example we declared a function <code class="docutils literal notranslate"><span class="pre">getAge(date)</span></code> and then linked it to a python implementation.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getAge</span><span class="p">(</span><span class="nx">date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nx">call</span> <span class="nx">python_module</span><span class="p">.</span><span class="nx">get_age</span> <span class="nx">date</span><span class="p">;</span>
@@ -81,10 +70,8 @@ A healthcare professional writing a report doesn’t need to worry about the con
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>The propeties of objects can be accessed with dot.
-`` Person.name ``</p>
 <p>The reserved word <code class="docutils literal notranslate"><span class="pre">this</span></code> refers to the current object while constructing an object.. E.g.</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="ss">PatientIdentification</span><span class="p">:</span>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identification:</span>
     <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;Patient Name&#39;</span><span class="p">;</span>
     <span class="ss">Birthdate</span><span class="p">:</span> <span class="s1">&#39;01-01-2000&#39;</span><span class="p">;</span>
     <span class="o">...</span>
@@ -124,11 +111,7 @@ A healthcare professional writing a report doesn’t need to worry about the con
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">1. Getting started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. MRL Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#variables">2.1. Variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#declaration-and-asignments">2.1.1. Declaration and asignments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#operations-with-variables">2.1.2. Operations with variables</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#variables">2.1. Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functions">2.2. Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#objects">2.3. Objects</a></li>
 </ul>

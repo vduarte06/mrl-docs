@@ -37,7 +37,8 @@
 <p>A MRL report has at least 4 mandatory sections: <code class="docutils literal notranslate"><span class="pre">ExamInfo,</span> <span class="pre">Identification;</span> <span class="pre">Results</span> <span class="pre">and</span> <span class="pre">Conclusion.</span></code></p>
 <section id="exam-information">
 <h2>4.1. Exam Information<a class="headerlink" href="#exam-information" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recording:</span>
+<p>We start by identifing the exam:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1"># ExamInfo:</span>
     <span class="ss">Equipment</span><span class="p">:</span> <span class="s1">&#39;Nox&#39;</span><span class="p">;</span>
     <span class="ss">Channels</span><span class="p">:</span> <span class="no">EEG</span><span class="p">,</span> <span class="no">EMG</span><span class="p">,</span> <span class="no">PSG</span><span class="p">,</span> <span class="no">ECG</span><span class="p">;</span>
     <span class="ss">StartDateTime</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2022</span><span class="p">;</span>
@@ -45,7 +46,6 @@
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>We start by identifing the exam:</p>
 <p>This will allow MRL to access the exam variables</p>
 </section>
 <section id="patient-identification">
@@ -70,21 +70,30 @@ We can group them in categories of findings. Tipical categories of results in a 
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1">#Results:</span>
     <span class="ss">Respiration</span><span class="p">:</span> <span class="no">IAH</span><span class="p">,</span> <span class="no">ODI</span><span class="p">;</span>
     <span class="ss">SleepArchitecture</span><span class="p">:</span> <span class="no">SleepTime</span><span class="p">,</span> <span class="no">Arousals</span><span class="p">,</span> <span class="no">SleepPhases</span><span class="p">;</span>
-    <span class="ss">Movement</span><span class="p">:</span>
-        <span class="no">LegMovements</span><span class="p">,</span>
-        <span class="s1">&#39;Legs vs Arousals&#39;</span> <span class="p">:</span> <span class="n">correlate</span><span class="p">(</span><span class="no">LegMovement</span><span class="p">,</span> <span class="no">Arousals</span><span class="p">);</span>
+    <span class="no">LegsvsArousals</span> <span class="p">:</span> <span class="n">correlate</span><span class="p">(</span><span class="no">LegMovement</span><span class="p">,</span> <span class="no">Arousals</span><span class="p">);</span>
 <span class="k">end</span>
 </pre></div>
 </div>
 </section>
 <section id="conclusions">
-<h2>4.3. Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<h2>4.4. Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
 <p>A physician will look at the results and make conclusions.</p>
-<p>There are a limited range of diagnosis you can make from a PSG exam.</p>
+<p>There is a limited range of conclusions you can make from a PSG exam.</p>
 <p>In the following example we show how a physician can diagnose a patient with Severe Obstructive Sleep Apnea (OSA) and prescribe Continuous Positive Airway Pressure (CPAP) Therapy.</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1">#Conclusions:</span>
     <span class="ss">Diagnosis</span><span class="p">:</span> <span class="no">Diagnosis</span><span class="o">.</span><span class="n">OSA</span><span class="o">.</span><span class="n">severe</span><span class="p">;</span>
     <span class="ss">Recomendatios</span><span class="p">:</span> <span class="no">CPAP</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</section>
+<section id="appends">
+<h2>4.5. Appends<a class="headerlink" href="#appends" title="Permalink to this headline">¶</a></h2>
+<p>It is an optional block where you can add figures, graphs or tables that can help to describe the results</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1">#Appends:</span>
+    <span class="ss">figure</span><span class="p">:</span> <span class="s1">&#39;Hipnograma&#39;</span> <span class="n">ipnogram</span><span class="o">.</span><span class="n">png</span><span class="p">;</span>
+    <span class="ss">graph</span><span class="p">:</span> <span class="s1">&#39;Arousal vs Limb Movements&#39;</span> <span class="o">[</span><span class="no">Arousal</span><span class="p">,</span><span class="no">PLM</span><span class="o">]</span><span class="p">;</span>
+    <span class="ss">table</span><span class="p">:</span> <span class="s1">&#39;Arousals, Limb Movements e SO2&#39;</span> <span class="o">[</span><span class="no">Arousals</span> <span class="p">,</span><span class="no">PLM</span><span class="p">,</span> <span class="no">SO2</span><span class="o">]</span><span class="p">;</span>
 <span class="k">end</span>
 </pre></div>
 </div>
@@ -124,7 +133,8 @@ We can group them in categories of findings. Tipical categories of results in a 
 <li class="toctree-l2"><a class="reference internal" href="#exam-information">4.1. Exam Information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#patient-identification">4.2. Patient Identification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#results">4.3. Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conclusions">4.3. Conclusions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusions">4.4. Conclusions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appends">4.5. Appends</a></li>
 </ul>
 </li>
 </ul>

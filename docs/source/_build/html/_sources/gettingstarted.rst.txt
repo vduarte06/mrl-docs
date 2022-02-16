@@ -12,21 +12,21 @@ Example:
 .. code-block:: ruby
 
     from utils import Diagnosis;
-    Identification:
+    # Identification:
         patientName: 'Patient Name';
         Birthdate: '01-01-2000';
     end
 
-    ExamInfo:
+    # ExamInfo:
         name: 'exam.edf'
         type: 'PSG'
     end
 
-    Results:
+    # Results:
         Respiration: IAH, ODI;
     end
 
-    Conclusions:
+    # Conclusions:
         Diagnosis: Diagnosis.OSA.severe;
         Recomendatios: CPAP;
     end

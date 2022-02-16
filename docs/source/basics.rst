@@ -8,9 +8,6 @@
 When an exam is imported, multiple variables will be availabe in the environment of MRL.
 E.g. if we want to know the Apnea/Hipopnea Index (AHI) we can simply state AHI to access this variable.
 
-2.1.1. Declaration and asignments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 We can also create our own variable asignments, as shown in the following exame:
 
 .. code-block:: javascript
@@ -18,20 +15,10 @@ We can also create our own variable asignments, as shown in the following exame:
     var1 = 1;
 
 
-2.1.2. Operations with variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You can also perform simple operations with variables, including sum, subtraction, multiplication and division.
-
-.. code-block:: javascript
-
-    var1 = 1;
-    var2 = var1 + 1;
-
 2.2. Functions
 --------------
 
-MRL doenst support general purpose programming but allows the user to import functions implemented in other languages. 
+MRL doens't support general purpose programming but allows the user to import functions implemented in other languages. 
 
 MRL ships with Python integration.
 Python was chosen to be the default language because it has great libraries for signal processing and is easy to learn.
@@ -40,7 +27,7 @@ In summary: functions must be implemented in Python and then connected to MRL. T
 
 .. note::
 
-   Functions must be declared in a file with the extension ``.fmrl``
+   Functions must be declared in a file with the extension in a file called  ``api.mrl``
 
 In the following example we declared a function ``getAge(date)`` and then linked it to a python implementation.
 
@@ -64,14 +51,12 @@ Objects are represented in a simple ``key:value`` form. E.g.
         Birthdate: '01-01-2000';
     end
 
-The propeties of objects can be accessed with dot.
-`` Person.name ``
 
 The reserved word ``this`` refers to the current object while constructing an object.. E.g.
 
 .. code-block:: ruby
 
-    PatientIdentification:
+    # Identification:
         name: 'Patient Name';
         Birthdate: '01-01-2000';
         ...

@@ -7,17 +7,17 @@ A MRL report has at least 4 mandatory sections: ``ExamInfo, Identification; Resu
 4.1. Exam Information
 ---------------------
 
+We start by identifing the exam:
+
+
 .. code-block:: ruby
 
-    # Recording:
+    # ExamInfo:
         Equipment: 'Nox';
         Channels: EEG, EMG, PSG, ECG;
         StartDateTime: 1/1/2022;
         EndDatetime: 2/2/2022;
     end
-
-We start by identifing the exam:
-
 
 This will allow MRL to access the exam variables
 
@@ -50,18 +50,16 @@ This section is usually filled by a sleep technician.
     #Results:
         Respiration: IAH, ODI;
         SleepArchitecture: SleepTime, Arousals, SleepPhases;
-        Movement:  
-            LegMovements, 
-            'Legs vs Arousals' : correlate(LegMovement, Arousals); 
+        LegsvsArousals : correlate(LegMovement, Arousals); 
     end
 
 
-4.3. Conclusions
+4.4. Conclusions
 ----------------
 
 A physician will look at the results and make conclusions.
 
-There are a limited range of diagnosis you can make from a PSG exam. 
+There is a limited range of conclusions you can make from a PSG exam. 
 
 In the following example we show how a physician can diagnose a patient with Severe Obstructive Sleep Apnea (OSA) and prescribe Continuous Positive Airway Pressure (CPAP) Therapy.
 
@@ -73,6 +71,18 @@ In the following example we show how a physician can diagnose a patient with Sev
     end
 
 
+4.5. Appends
+------------
+
+It is an optional block where you can add figures, graphs or tables that can help to describe the results
+
+.. code-block:: ruby
+
+    #Appends:
+        figure: 'Hipnograma' ipnogram.png;
+        graph: 'Arousal vs Limb Movements' [Arousal,PLM];
+        table: 'Arousals, Limb Movements e SO2' [Arousals ,PLM, SO2];     
+    end
 
 .. autosummary::
    :toctree: generated
